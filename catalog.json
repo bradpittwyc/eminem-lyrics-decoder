@@ -1,0 +1,962 @@
+{
+  "infinite": {
+    "title": "Infinite",
+    "year": 1996,
+    "url": "https://www.eminem.com/releases/infinite/",
+    "tracks": [
+      {
+        "title": "Infinite",
+        "url": "https://www.eminem.com/song/infinite/"
+      },
+      {
+        "title": "W.E.G.O. (Interlude)",
+        "url": "https://www.eminem.com/song/w.e.g.o.-(interlude)/"
+      },
+      {
+        "title": "It's OK",
+        "url": "https://www.eminem.com/song/it's-ok/"
+      },
+      {
+        "title": "313",
+        "url": "https://www.eminem.com/song/313/"
+      },
+      {
+        "title": "Tonite",
+        "url": "https://www.eminem.com/song/tonite/"
+      },
+      {
+        "title": "Maxine",
+        "url": "https://www.eminem.com/song/maxine/"
+      },
+      {
+        "title": "Open Mic",
+        "url": "https://www.eminem.com/song/open-mic/"
+      },
+      {
+        "title": "Never 2 Far",
+        "url": "https://www.eminem.com/song/never-2-far/"
+      },
+      {
+        "title": "Searchin'",
+        "url": "https://www.eminem.com/song/searchin'/"
+      },
+      {
+        "title": "Backstabber",
+        "url": "https://www.eminem.com/song/backstabber/"
+      },
+      {
+        "title": "Jealousy Woes II",
+        "url": "https://www.eminem.com/song/jealousy-woes-ii/"
+      }
+    ]
+  },
+  "sslp": {
+    "title": "The Slim Shady LP",
+    "year": 1999,
+    "url": "https://www.eminem.com/releases/slim-shady-lp-0/",
+    "tracks": [
+      {
+        "title": "Public Service Announcement - Album Version (Edited)",
+        "url": "https://www.eminem.com/song/public-service-announcement-album-version-edited/"
+      },
+      {
+        "title": "My Name Is",
+        "url": "https://www.eminem.com/song/my-name/"
+      },
+      {
+        "title": "Guilty Conscience",
+        "url": "https://www.eminem.com/song/guilty-conscience/"
+      },
+      {
+        "title": "Brain Damage",
+        "url": "https://www.eminem.com/song/brain-damage/"
+      },
+      {
+        "title": "Paul - Skit",
+        "url": "https://www.eminem.com/song/paul-skit/"
+      },
+      {
+        "title": "If I Had",
+        "url": "https://www.eminem.com/song/if-i-had/"
+      },
+      {
+        "title": "'97 Bonnie & Clyde",
+        "url": "https://www.eminem.com/song/97-bonnie-clyde/"
+      },
+      {
+        "title": "Bitch - Skit",
+        "url": "https://www.eminem.com/song/bitch-skit/"
+      },
+      {
+        "title": "Role Model",
+        "url": "https://www.eminem.com/song/role-model/"
+      },
+      {
+        "title": "Lounge - Skit",
+        "url": "https://www.eminem.com/song/lounge-skit/"
+      },
+      {
+        "title": "My Fault",
+        "url": "https://www.eminem.com/song/my-fault/"
+      },
+      {
+        "title": "Ken Kaniff",
+        "url": "https://www.eminem.com/song/ken-kaniff/"
+      },
+      {
+        "title": "Come On Everybody",
+        "url": "https://www.eminem.com/song/come-everybody/"
+      },
+      {
+        "title": "Rock Bottom",
+        "url": "https://www.eminem.com/song/rock-bottom/"
+      },
+      {
+        "title": "Just Don't Give a F**",
+        "url": "https://www.eminem.com/song/just-dont-give-f/"
+      },
+      {
+        "title": "Soap - Skit",
+        "url": "https://www.eminem.com/song/soap-skit/"
+      },
+      {
+        "title": "As The World Turns",
+        "url": "https://www.eminem.com/song/world-turns/"
+      },
+      {
+        "title": "I'm Shady",
+        "url": "https://www.eminem.com/song/im-shady/"
+      },
+      {
+        "title": "Bad Meets Evil",
+        "url": "https://www.eminem.com/song/bad-meets-evil/"
+      },
+      {
+        "title": "Still Don't Give",
+        "url": "https://www.eminem.com/song/still-dont-give/"
+      }
+    ]
+  },
+  "mmlp": {
+    "title": "The Marshall Mathers LP",
+    "year": 2000,
+    "url": "https://www.eminem.com/releases/marshall-mathers-lp/",
+    "tracks": [
+      {
+        "title": "Public Service Announcement 2000",
+        "url": "https://www.eminem.com/song/public-service-announcement-2000/"
+      },
+      {
+        "title": "Kill You",
+        "url": "https://www.eminem.com/song/kill-you/"
+      },
+      {
+        "title": "Stan",
+        "url": "https://www.eminem.com/song/stan/"
+      },
+      {
+        "title": "Paul - Skit",
+        "url": "https://www.eminem.com/song/paul-skit/"
+      },
+      {
+        "title": "Who Knew",
+        "url": "https://www.eminem.com/song/who-knew/"
+      },
+      {
+        "title": "Steve Berman",
+        "url": "https://www.eminem.com/song/steve-berman/"
+      },
+      {
+        "title": "The Way I Am",
+        "url": "https://www.eminem.com/song/way-i-am/"
+      },
+      {
+        "title": "The Real Slim Shady",
+        "url": "https://www.eminem.com/song/real-slim-shady/"
+      },
+      {
+        "title": "Remember Me?",
+        "url": "https://www.eminem.com/song/remember-me/"
+      },
+      {
+        "title": "I'm Back",
+        "url": "https://www.eminem.com/song/im-back/"
+      },
+      {
+        "title": "Marshall Mathers",
+        "url": "https://www.eminem.com/song/marshall-mathers/"
+      },
+      {
+        "title": "Ken Kaniff - Skit",
+        "url": "https://www.eminem.com/song/ken-kaniff-skit/"
+      },
+      {
+        "title": "Drug Ballad",
+        "url": "https://www.eminem.com/song/drug-ballad/"
+      },
+      {
+        "title": "Amityville",
+        "url": "https://www.eminem.com/song/amityville/"
+      },
+      {
+        "title": "Bitch Please II",
+        "url": "https://www.eminem.com/song/bitch-please-ii/"
+      },
+      {
+        "title": "Kim",
+        "url": "https://www.eminem.com/song/kim/"
+      },
+      {
+        "title": "Under The Influence",
+        "url": "https://www.eminem.com/song/under-influence/"
+      },
+      {
+        "title": "Criminal",
+        "url": "https://www.eminem.com/song/criminal/"
+      }
+    ]
+  },
+  "tes": {
+    "title": "The Eminem Show",
+    "year": 2002,
+    "url": "https://www.eminem.com/releases/eminem-show-explicit-version/",
+    "tracks": [
+      {
+        "title": "Curtains Up - Skit / Album Version",
+        "url": "https://www.eminem.com/song/curtains-skit-album-version/"
+      },
+      {
+        "title": "White America",
+        "url": "https://www.eminem.com/song/white-america/"
+      },
+      {
+        "title": "Business",
+        "url": "https://www.eminem.com/song/business/"
+      },
+      {
+        "title": "Cleanin' Out My Closet",
+        "url": "https://www.eminem.com/song/cleanin-out-my-closet/"
+      },
+      {
+        "title": "Square Dance",
+        "url": "https://www.eminem.com/song/square-dance/"
+      },
+      {
+        "title": "The Kiss - Skit / Album Version",
+        "url": "https://www.eminem.com/song/kiss-skit-album-version/"
+      },
+      {
+        "title": "Soldier",
+        "url": "https://www.eminem.com/song/soldier/"
+      },
+      {
+        "title": "Say Goodbye Hollywood",
+        "url": "https://www.eminem.com/song/say-goodbye-hollywood/"
+      },
+      {
+        "title": "Drips",
+        "url": "https://www.eminem.com/song/drips/"
+      },
+      {
+        "title": "Without Me",
+        "url": "https://www.eminem.com/song/without-me/"
+      },
+      {
+        "title": "Paul Rosenberg - Skit / Album Version",
+        "url": "https://www.eminem.com/song/paul-rosenberg-skit-album-version/"
+      },
+      {
+        "title": "Sing For The Moment",
+        "url": "https://www.eminem.com/song/sing-moment/"
+      },
+      {
+        "title": "Superman",
+        "url": "https://www.eminem.com/song/superman/"
+      },
+      {
+        "title": "Hailie's Song",
+        "url": "https://www.eminem.com/song/hailies-song/"
+      },
+      {
+        "title": "Steve Berman - Skit / Album Version",
+        "url": "https://www.eminem.com/song/steve-berman-skit-album-version/"
+      },
+      {
+        "title": "When The Music Stops",
+        "url": "https://www.eminem.com/song/when-music-stops/"
+      },
+      {
+        "title": "Say What You Say",
+        "url": "https://www.eminem.com/song/say-what-you-say/"
+      },
+      {
+        "title": "'Till I Collapse",
+        "url": "https://www.eminem.com/song/till-i-collapse/"
+      },
+      {
+        "title": "My Dad's Gone Crazy",
+        "url": "https://www.eminem.com/song/my-dads-gone-crazy/"
+      },
+      {
+        "title": "Curtains Close",
+        "url": "https://www.eminem.com/song/curtains-close/"
+      }
+    ]
+  },
+  "encore": {
+    "title": "Encore",
+    "year": 2004,
+    "url": "https://www.eminem.com/releases/encore/",
+    "tracks": [
+      {
+        "title": "Curtains Up",
+        "url": "https://www.eminem.com/song/curtains/"
+      },
+      {
+        "title": "Evil Deeds",
+        "url": "https://www.eminem.com/song/evil-deeds/"
+      },
+      {
+        "title": "Never Enough",
+        "url": "https://www.eminem.com/song/never-enough/"
+      },
+      {
+        "title": "Yellow Brick Road",
+        "url": "https://www.eminem.com/song/yellow-brick-road/"
+      },
+      {
+        "title": "Like Toy Soldiers",
+        "url": "https://www.eminem.com/song/toy-soldiers/"
+      },
+      {
+        "title": "Mosh",
+        "url": "https://www.eminem.com/song/mosh/"
+      },
+      {
+        "title": "Puke",
+        "url": "https://www.eminem.com/song/puke/"
+      },
+      {
+        "title": "My 1st Single",
+        "url": "https://www.eminem.com/song/my-1st-single/"
+      },
+      {
+        "title": "Paul - Skit",
+        "url": "https://www.eminem.com/song/paul-skit/"
+      },
+      {
+        "title": "Rain Man",
+        "url": "https://www.eminem.com/song/rain-man/"
+      },
+      {
+        "title": "Big Weenie",
+        "url": "https://www.eminem.com/song/big-weenie/"
+      },
+      {
+        "title": "Em Calls Paul - Skit",
+        "url": "https://www.eminem.com/song/em-calls-paul-skit/"
+      },
+      {
+        "title": "Just Lose It",
+        "url": "https://www.eminem.com/song/just-lose-it/"
+      },
+      {
+        "title": "Ass Like That",
+        "url": "https://www.eminem.com/song/ass/"
+      },
+      {
+        "title": "Spend Some Time",
+        "url": "https://www.eminem.com/song/spend-some-time/"
+      },
+      {
+        "title": "Mockingbird",
+        "url": "https://www.eminem.com/song/mockingbird/"
+      },
+      {
+        "title": "Crazy In Love",
+        "url": "https://www.eminem.com/song/crazy-love/"
+      },
+      {
+        "title": "One Shot 2 Shot",
+        "url": "https://www.eminem.com/song/one-shot-2-shot/"
+      },
+      {
+        "title": "Final Thought - Skit",
+        "url": "https://www.eminem.com/song/final-thought-skit/"
+      },
+      {
+        "title": "Encore/Curtains Down",
+        "url": "https://www.eminem.com/song/encorecurtains-down/"
+      }
+    ]
+  },
+  "relapse": {
+    "title": "Relapse",
+    "year": 2009,
+    "url": "https://www.eminem.com/releases/relapse-0/",
+    "tracks": [
+      {
+        "title": "Dr. West - Skit",
+        "url": "https://www.eminem.com/song/dr-west-skit/"
+      },
+      {
+        "title": "3 a.m.",
+        "url": "https://www.eminem.com/song/3-am/"
+      },
+      {
+        "title": "My Mom",
+        "url": "https://www.eminem.com/song/my-mom/"
+      },
+      {
+        "title": "Insane",
+        "url": "https://www.eminem.com/song/insane/"
+      },
+      {
+        "title": "Bagpipes From Baghdad",
+        "url": "https://www.eminem.com/song/bagpipes-baghdad/"
+      },
+      {
+        "title": "Hello",
+        "url": "https://www.eminem.com/song/hello/"
+      },
+      {
+        "title": "Tonya - Skit",
+        "url": "https://www.eminem.com/song/tonya-skit/"
+      },
+      {
+        "title": "Same Song & Dance",
+        "url": "https://www.eminem.com/song/same-song-dance/"
+      },
+      {
+        "title": "We Made You",
+        "url": "https://www.eminem.com/song/we-made-you/"
+      },
+      {
+        "title": "Medicine Ball",
+        "url": "https://www.eminem.com/song/medicine-ball/"
+      },
+      {
+        "title": "Paul - Skit",
+        "url": "https://www.eminem.com/song/paul-skit/"
+      },
+      {
+        "title": "Stay Wide Awake",
+        "url": "https://www.eminem.com/song/stay-wide-awake/"
+      },
+      {
+        "title": "Old Time's Sake",
+        "url": "https://www.eminem.com/song/old-times-sake/"
+      },
+      {
+        "title": "Must Be The Ganja",
+        "url": "https://www.eminem.com/song/must-be-ganja/"
+      },
+      {
+        "title": "Mr. Mathers - Skit",
+        "url": "https://www.eminem.com/song/mr-mathers-skit/"
+      },
+      {
+        "title": "Deja Vu",
+        "url": "https://www.eminem.com/song/deja-vu/"
+      },
+      {
+        "title": "Beautiful",
+        "url": "https://www.eminem.com/song/beautiful/"
+      },
+      {
+        "title": "Crack A Bottle",
+        "url": "https://www.eminem.com/song/crack-bottle/"
+      },
+      {
+        "title": "Steve Berman - Skit",
+        "url": "https://www.eminem.com/song/steve-berman-skit/"
+      },
+      {
+        "title": "Underground",
+        "url": "https://www.eminem.com/song/underground/"
+      },
+      {
+        "title": "Crack A Bottle - Single Version",
+        "url": "https://www.eminem.com/song/crack-bottle-single-version/"
+      }
+    ]
+  },
+  "recovery": {
+    "title": "Recovery",
+    "year": 2010,
+    "url": "https://www.eminem.com/releases/recovery/",
+    "tracks": [
+      {
+        "title": "Cold Wind Blows",
+        "url": "https://www.eminem.com/song/cold-wind-blows/"
+      },
+      {
+        "title": "Talkin’ 2 Myself",
+        "url": "https://www.eminem.com/song/talkin-2-myself/"
+      },
+      {
+        "title": "On Fire",
+        "url": "https://www.eminem.com/song/fire/"
+      },
+      {
+        "title": "Won't Back Down",
+        "url": "https://www.eminem.com/song/wont-back-down/"
+      },
+      {
+        "title": "W.T.P.",
+        "url": "https://www.eminem.com/song/wtp/"
+      },
+      {
+        "title": "Going Through Changes",
+        "url": "https://www.eminem.com/song/going-through-changes/"
+      },
+      {
+        "title": "Not Afraid",
+        "url": "https://www.eminem.com/song/not-afraid/"
+      },
+      {
+        "title": "Seduction",
+        "url": "https://www.eminem.com/song/seduction/"
+      },
+      {
+        "title": "No Love",
+        "url": "https://www.eminem.com/song/no-love/"
+      },
+      {
+        "title": "Space Bound",
+        "url": "https://www.eminem.com/song/space-bound/"
+      },
+      {
+        "title": "Cinderella Man",
+        "url": "https://www.eminem.com/song/cinderella-man/"
+      },
+      {
+        "title": "25 To Life",
+        "url": "https://www.eminem.com/song/25-life/"
+      },
+      {
+        "title": "So Bad",
+        "url": "https://www.eminem.com/song/so-bad/"
+      },
+      {
+        "title": "Almost Famous",
+        "url": "https://www.eminem.com/song/almost-famous/"
+      },
+      {
+        "title": "Love The Way You Lie",
+        "url": "https://www.eminem.com/song/love-way-you-lie/"
+      },
+      {
+        "title": "You’re Never Over",
+        "url": "https://www.eminem.com/song/youre-never-over/"
+      },
+      {
+        "title": "Untitled",
+        "url": "https://www.eminem.com/song/untitled/"
+      }
+    ]
+  },
+  "mmlp2": {
+    "title": "The Marshall Mathers LP 2",
+    "year": 2013,
+    "url": "https://www.eminem.com/releases/marshall-mathers-lp2-1/",
+    "tracks": [
+      {
+        "title": "Bad Guy",
+        "url": "https://www.eminem.com/song/bad-guy/"
+      },
+      {
+        "title": "Parking Lot - Skit",
+        "url": "https://www.eminem.com/song/parking-lot-skit/"
+      },
+      {
+        "title": "Rhyme Or Reason",
+        "url": "https://www.eminem.com/song/rhyme-or-reason/"
+      },
+      {
+        "title": "So Much Better",
+        "url": "https://www.eminem.com/song/so-much-better/"
+      },
+      {
+        "title": "Survival",
+        "url": "https://www.eminem.com/song/survival/"
+      },
+      {
+        "title": "Legacy",
+        "url": "https://www.eminem.com/song/legacy/"
+      },
+      {
+        "title": "Asshole",
+        "url": "https://www.eminem.com/song/asshole-0/"
+      },
+      {
+        "title": "Berzerk",
+        "url": "https://www.eminem.com/song/berzerk/"
+      },
+      {
+        "title": "Rap God",
+        "url": "https://www.eminem.com/song/rap-god/"
+      },
+      {
+        "title": "Brainless",
+        "url": "https://www.eminem.com/song/brainless/"
+      },
+      {
+        "title": "Stronger Than I Was",
+        "url": "https://www.eminem.com/song/stronger-i-was/"
+      },
+      {
+        "title": "The Monster",
+        "url": "https://www.eminem.com/song/monster/"
+      },
+      {
+        "title": "So Far...",
+        "url": "https://www.eminem.com/song/so-far/"
+      },
+      {
+        "title": "Love Game",
+        "url": "https://www.eminem.com/song/love-game/"
+      },
+      {
+        "title": "Headlights",
+        "url": "https://www.eminem.com/song/headlights/"
+      },
+      {
+        "title": "Evil Twin",
+        "url": "https://www.eminem.com/song/evil-twin/"
+      },
+      {
+        "title": "Baby",
+        "url": "https://www.eminem.com/song/baby/"
+      },
+      {
+        "title": "Desperation",
+        "url": "https://www.eminem.com/song/desperation/"
+      },
+      {
+        "title": "Groundhog Day",
+        "url": "https://www.eminem.com/song/groundhog-day/"
+      },
+      {
+        "title": "Beautiful Pain",
+        "url": "https://www.eminem.com/song/beautiful-pain-2/"
+      },
+      {
+        "title": "Wicked Ways",
+        "url": "https://www.eminem.com/song/wicked-ways/"
+      }
+    ]
+  },
+  "revival": {
+    "title": "Revival",
+    "year": 2017,
+    "url": "https://www.eminem.com/releases/revival/",
+    "tracks": [
+      {
+        "title": "Walk On Water (feat. Beyoncé)",
+        "url": "https://www.eminem.com/song/walk-water-feat-beyonc/"
+      },
+      {
+        "title": "Believe",
+        "url": "https://www.eminem.com/song/believe/"
+      },
+      {
+        "title": "Chloraseptic (feat. Phresher)",
+        "url": "https://www.eminem.com/song/chloraseptic-feat-phresher/"
+      },
+      {
+        "title": "Untouchable",
+        "url": "https://www.eminem.com/song/untouchable/"
+      },
+      {
+        "title": "River (feat. Ed Sheeran)",
+        "url": "https://www.eminem.com/song/river-feat-ed-sheeran/"
+      },
+      {
+        "title": "Remind Me (Intro)",
+        "url": "https://www.eminem.com/song/remind-me-intro/"
+      },
+      {
+        "title": "Remind Me",
+        "url": "https://www.eminem.com/song/remind-me/"
+      },
+      {
+        "title": "Revival (Interlude)",
+        "url": "https://www.eminem.com/song/revival-interlude/"
+      },
+      {
+        "title": "Like Home (feat. Alicia Keys)",
+        "url": "https://www.eminem.com/song/home-feat-alicia-keys/"
+      },
+      {
+        "title": "Bad Husband (feat. X Ambassadors)",
+        "url": "https://www.eminem.com/song/bad-husband-feat-x-ambassadors/"
+      },
+      {
+        "title": "Tragic Endings (feat. Skylar Grey)",
+        "url": "https://www.eminem.com/song/tragic-endings-feat-skylar-grey/"
+      },
+      {
+        "title": "Framed",
+        "url": "https://www.eminem.com/song/framed/"
+      },
+      {
+        "title": "Nowhere Fast (feat. Kehlani)",
+        "url": "https://www.eminem.com/song/nowhere-fast-feat-kehlani/"
+      },
+      {
+        "title": "Heat",
+        "url": "https://www.eminem.com/song/heat/"
+      },
+      {
+        "title": "Offended",
+        "url": "https://www.eminem.com/song/offended/"
+      },
+      {
+        "title": "Need Me (feat. Pink)",
+        "url": "https://www.eminem.com/song/need-me-feat-pink/"
+      },
+      {
+        "title": "In Your Head",
+        "url": "https://www.eminem.com/song/your-head/"
+      },
+      {
+        "title": "Castle",
+        "url": "https://www.eminem.com/song/castle/"
+      },
+      {
+        "title": "Arose",
+        "url": "https://www.eminem.com/song/arose/"
+      }
+    ]
+  },
+  "kamikaze": {
+    "title": "Kamikaze",
+    "year": 2018,
+    "url": "https://www.eminem.com/releases/kamikaze/",
+    "tracks": [
+      {
+        "title": "The Ringer",
+        "url": "https://www.eminem.com/song/ringer/"
+      },
+      {
+        "title": "Greatest",
+        "url": "https://www.eminem.com/song/greatest/"
+      },
+      {
+        "title": "Lucky You (feat. Joyner Lucas)",
+        "url": "https://www.eminem.com/song/lucky-you-feat-joyner-lucas/"
+      },
+      {
+        "title": "Paul - Skit",
+        "url": "https://www.eminem.com/song/paul-skit/"
+      },
+      {
+        "title": "Normal",
+        "url": "https://www.eminem.com/song/normal/"
+      },
+      {
+        "title": "Em Calls Paul - Skit",
+        "url": "https://www.eminem.com/song/em-calls-paul-skit/"
+      },
+      {
+        "title": "Stepping Stone",
+        "url": "https://www.eminem.com/song/stepping-stone/"
+      },
+      {
+        "title": "Not Alike (feat. Royce Da 5'9)",
+        "url": "https://www.eminem.com/song/not-alike-feat-royce-da-59/"
+      },
+      {
+        "title": "Kamikaze",
+        "url": "https://www.eminem.com/song/kamikaze/"
+      },
+      {
+        "title": "Fall",
+        "url": "https://www.eminem.com/song/fall/"
+      },
+      {
+        "title": "Nice Guy (with Jessie Reyez)",
+        "url": "https://www.eminem.com/song/nice-guy-jessie-reyez/"
+      },
+      {
+        "title": "Good Guy (feat. Jessie Reyez)",
+        "url": "https://www.eminem.com/song/good-guy-feat-jessie-reyez/"
+      },
+      {
+        "title": "Venom - Music From The Motion Picture",
+        "url": "https://www.eminem.com/song/venom-music-motion-picture/"
+      }
+    ]
+  },
+  "mtbmb": {
+    "title": "Music To Be Murdered By",
+    "year": 2020,
+    "url": "https://www.eminem.com/releases/music-to-be-murdered-by/",
+    "tracks": [
+      {
+        "title": "Premonition - Intro",
+        "url": "https://www.eminem.com/song/premonition-intro/"
+      },
+      {
+        "title": "Unaccommodating (feat. Young M.A)",
+        "url": "https://www.eminem.com/song/unaccommodating-feat-young-ma/"
+      },
+      {
+        "title": "You Gon’ Learn (feat. Royce Da 5'9\" & White Gold)",
+        "url": "https://www.eminem.com/song/you-gon-learn-feat-royce-da-59-white-gold/"
+      },
+      {
+        "title": "Alfred - Interlude",
+        "url": "https://www.eminem.com/song/alfred-interlude/"
+      },
+      {
+        "title": "Those Kinda Nights (feat. Ed Sheeran)",
+        "url": "https://www.eminem.com/song/those-kinda-nights-feat-ed-sheeran/"
+      },
+      {
+        "title": "In Too Deep",
+        "url": "https://www.eminem.com/song/too-deep/"
+      },
+      {
+        "title": "Godzilla (feat. Juice WRLD)",
+        "url": "https://www.eminem.com/song/godzilla-feat-juice-wrld/"
+      },
+      {
+        "title": "Darkness",
+        "url": "https://www.eminem.com/song/darkness/"
+      },
+      {
+        "title": "Leaving Heaven (feat. Skylar Grey)",
+        "url": "https://www.eminem.com/song/leaving-heaven-feat-skylar-grey/"
+      },
+      {
+        "title": "Yah Yah (feat. Royce Da 5'9\", Black Thought, Q-Tip & Denaun)",
+        "url": "https://www.eminem.com/song/yah-yah-feat-royce-da-59-black-thought-q-tip-denaun/"
+      },
+      {
+        "title": "Stepdad - Intro",
+        "url": "https://www.eminem.com/song/stepdad-intro/"
+      },
+      {
+        "title": "Stepdad",
+        "url": "https://www.eminem.com/song/stepdad/"
+      },
+      {
+        "title": "Marsh",
+        "url": "https://www.eminem.com/song/marsh/"
+      },
+      {
+        "title": "Never Love Again",
+        "url": "https://www.eminem.com/song/never-love-again/"
+      },
+      {
+        "title": "Little Engine",
+        "url": "https://www.eminem.com/song/little-engine/"
+      },
+      {
+        "title": "Lock It Up (feat. Anderson .Paak)",
+        "url": "https://www.eminem.com/song/lock-it-feat-anderson-paak/"
+      },
+      {
+        "title": "Farewell",
+        "url": "https://www.eminem.com/song/farewell/"
+      },
+      {
+        "title": "No Regrets (feat. Don Toliver)",
+        "url": "https://www.eminem.com/song/no-regrets-feat-don-toliver/"
+      },
+      {
+        "title": "I Will (feat. KXNG Crooked, Royce Da 5'9\" & Joell Ortiz)",
+        "url": "https://www.eminem.com/song/i-will-feat-kxng-crooked-royce-da-59-joell-ortiz/"
+      },
+      {
+        "title": "Alfred - Outro",
+        "url": "https://www.eminem.com/song/alfred-outro/"
+      }
+    ]
+  },
+  "tdoss": {
+    "title": "The Death of Slim Shady",
+    "year": 2024,
+    "url": "https://www.eminem.com/releases/the-death-of-slim-shady-coup-de-grace/",
+    "tracks": [
+      {
+        "title": "Renaissance",
+        "url": "https://www.eminem.com/song/renaissance/"
+      },
+      {
+        "title": "Habits",
+        "url": "https://www.eminem.com/song/habits/"
+      },
+      {
+        "title": "Trouble",
+        "url": "https://www.eminem.com/song/trouble/"
+      },
+      {
+        "title": "Brand New Dance",
+        "url": "https://www.eminem.com/song/brand-new-dance/"
+      },
+      {
+        "title": "Evil",
+        "url": "https://www.eminem.com/song/evil/"
+      },
+      {
+        "title": "All You Got (skit)",
+        "url": "https://www.eminem.com/song/all-you-got-skit/"
+      },
+      {
+        "title": "Lucifer",
+        "url": "https://www.eminem.com/song/lucifer/"
+      },
+      {
+        "title": "Antichrist",
+        "url": "https://www.eminem.com/song/antichrist/"
+      },
+      {
+        "title": "Fuel",
+        "url": "https://www.eminem.com/song/fuel/"
+      },
+      {
+        "title": "Road Rage",
+        "url": "https://www.eminem.com/song/road-rage/"
+      },
+      {
+        "title": "Houdini",
+        "url": "https://www.eminem.com/song/houdini/"
+      },
+      {
+        "title": "Breaking News (skit)",
+        "url": "https://www.eminem.com/song/breaking-news-skit/"
+      },
+      {
+        "title": "Guilty Conscience 2",
+        "url": "https://www.eminem.com/song/guilty-conscience-2/"
+      },
+      {
+        "title": "Head Honcho",
+        "url": "https://www.eminem.com/song/head-honcho/"
+      },
+      {
+        "title": "Temporary",
+        "url": "https://www.eminem.com/song/temporary/"
+      },
+      {
+        "title": "Bad One",
+        "url": "https://www.eminem.com/song/bad-one/"
+      },
+      {
+        "title": "Tobey",
+        "url": "https://www.eminem.com/song/tobey/"
+      },
+      {
+        "title": "Guess Who's Back (skit)",
+        "url": "https://www.eminem.com/song/guess-whos-back-skit/"
+      },
+      {
+        "title": "Somebody Save Me",
+        "url": "https://www.eminem.com/song/somebody-save-me/"
+      }
+    ]
+  }
+}
