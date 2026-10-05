@@ -13,6 +13,16 @@
     ::-webkit-scrollbar-thumb:hover { background: #52525b; }
 
     /* 歌词视窗交互高亮 */
+    .lyric-word {
+      border-radius: 3px;
+      transition: color 0.15s, background-color 0.15s;
+    }
+    .lyric-word:hover {
+      color: #fbbf24 !important;
+      background-color: rgba(245, 158, 11, 0.18);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     .lyric-row:hover { background-color: rgba(255, 255, 255, 0.05); }
     .active-row { background-color: rgba(239, 68, 68, 0.16) !important; border-left: 3px solid #ef4444; }
@@ -234,7 +244,7 @@
           <div class="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800/80 text-xs text-zinc-500">
             <span class="flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>歌词正文（点击任意单句，右侧即刻多维深度解构）</span>
+              <span>歌词正文（💡 点击任意单词智能语境查词与音标；点击整行深度解构）</span>
             </span>
             <span id="lyricsLineCountTag" class="font-mono text-[11px] text-zinc-500">共加载 0 行</span>
           </div>
@@ -276,6 +286,32 @@
             </button>
           </div>
 
+          <!-- 单词语境查词常驻面板 (点击单词后展现) -->
+          <div id="sideWordCard" class="hidden mb-3 bg-gradient-to-br from-purple-950/40 via-zinc-950 to-zinc-950 p-3.5 rounded-xl border border-purple-700/60 shadow-lg text-xs space-y-2">
+            <div class="flex items-center justify-between border-b border-purple-900/60 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-sm">📖</span>
+                <span id="sideWordTitle" class="font-bold text-white text-sm font-mono">Word</span>
+                <span id="sideWordIpa" class="px-2 py-0.5 rounded bg-purple-900/60 text-purple-200 font-mono text-[11px] border border-purple-700/50">/.../</span>
+                <span id="sideWordPos" class="text-zinc-400 font-mono text-[11px]"></span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="speakWord(document.getElementById('sideWordTitle').textContent)" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-[11px] font-mono transition flex items-center gap-1" title="朗读单词">
+                  🔊 朗读
+                </button>
+                <button onclick="document.getElementById('sideWordCard').classList.add('hidden')" class="text-zinc-400 hover:text-white text-sm leading-none p-1">&times;</button>
+              </div>
+            </div>
+            <div>
+              <span class="text-emerald-400 font-semibold block text-[11px] mb-0.5">🎯 歌词语境特定释义:</span>
+              <p id="sideWordMeaning" class="text-zinc-200 leading-relaxed font-sans"></p>
+            </div>
+            <div id="sideWordLoreBox" class="pt-1.5 border-t border-zinc-800/80">
+              <span class="text-amber-400 font-semibold block text-[11px] mb-0.5">💡 黑话俚语 / 双关修辞考据:</span>
+              <p id="sideWordLore" class="text-zinc-300 leading-relaxed font-sans"></p>
+            </div>
+          </div>
+
           <!-- 三层解构内容卡片 -->
           <div class="space-y-3.5 overflow-y-auto max-h-[580px] pr-1 flex-1 text-xs">
             <!-- Layer 1: 表层叙事 -->
@@ -315,6 +351,64 @@
       </section>
     </div>
   </main>
+
+  <!-- 智能语境点击查词浮层卡片 (Contextual Word Lookup Popover) -->
+  <div id="wordLookupPopover" class="fixed z-50 hidden bg-zinc-900/95 backdrop-blur-md border border-purple-600/80 rounded-2xl shadow-2xl p-4 max-w-sm w-80 text-xs transition-all duration-200 shadow-purple-950/40">
+    <!-- 浮层头部：单词、音标、朗读与关闭 -->
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-zinc-800">
+      <div class="flex items-center gap-2 flex-wrap">
+        <span id="popoverWord" class="font-bold text-white text-base font-mono">Word</span>
+        <span id="popoverIpa" class="px-2 py-0.5 rounded bg-purple-950/80 text-purple-300 font-mono text-[11px] border border-purple-800/60">/.../</span>
+        <button onclick="speakWord(document.getElementById('popoverWord').textContent)" class="text-zinc-400 hover:text-white transition p-1" title="朗读单词发音">
+          🔊
+        </button>
+      </div>
+      <button onclick="closeWordPopover()" class="text-zinc-400 hover:text-white text-base font-bold p-1 leading-none">&times;</button>
+    </div>
+
+    <!-- 加载中动画 -->
+    <div id="popoverLoading" class="py-4 text-center text-purple-300 space-y-2">
+      <div class="animate-spin text-xl inline-block">🔄</div>
+      <p class="text-[11px] font-mono text-zinc-400">Gemini 3.8 正在结合本句语境解析词义与音标...</p>
+    </div>
+
+    <!-- 查词结果主体 -->
+    <div id="popoverContent" class="space-y-2.5 hidden">
+      <!-- 词性与语境释义 -->
+      <div class="bg-zinc-950/80 p-2.5 rounded-xl border border-zinc-800/80">
+        <div class="flex items-center gap-1.5 text-zinc-400 text-[11px] font-semibold mb-1">
+          <span class="text-emerald-400">🎯</span>
+          <span>歌词语境特定释义 (<span id="popoverPos" class="font-mono text-zinc-300"></span>)</span>
+        </div>
+        <p id="popoverContextMeaning" class="text-zinc-200 leading-relaxed font-sans text-xs">
+          ...
+        </p>
+      </div>
+
+      <!-- 黑话、双关与典故 -->
+      <div id="popoverLoreBox" class="bg-zinc-950/80 p-2.5 rounded-xl border border-zinc-800/80">
+        <div class="flex items-center gap-1.5 text-zinc-400 text-[11px] font-semibold mb-1">
+          <span class="text-amber-400">💡</span>
+          <span>黑话/双关/修辞考据</span>
+        </div>
+        <p id="popoverLore" class="text-zinc-300 leading-relaxed font-sans text-xs">
+          ...
+        </p>
+      </div>
+
+      <!-- 字典常规字面义 -->
+      <div class="bg-zinc-950/50 p-2 rounded-xl border border-zinc-900 text-zinc-400 text-[11px]">
+        <span class="text-zinc-500 font-mono">通用字典字面义:</span>
+        <span id="popoverLiteral" class="text-zinc-300 ml-1">...</span>
+      </div>
+    </div>
+
+    <!-- 底部来源标识 -->
+    <div class="pt-2 mt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] text-zinc-500 font-mono">
+      <span id="popoverSourceTag">✨ Gemini 3.8 语境解析</span>
+      <button onclick="openLLMModal()" class="text-purple-400 hover:underline">引擎设置</button>
+    </div>
+  </div>
 
   <!-- 官方源歌词导入与自定义解构模态框 -->
   <div id="customModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -400,8 +494,8 @@
 
         <div>
           <label class="block text-zinc-400 mb-1 font-semibold">模型代号 (Model Name)</label>
-          <input type="text" id="llmModel" value="gemini-2.5-flash" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2.5 text-zinc-200 font-mono focus:outline-none focus:border-purple-500">
-          <p class="text-[11px] text-zinc-500 mt-1">Gemini 推荐: <code class="text-purple-400">gemini-2.5-flash</code> 或 <code class="text-purple-400">gemini-1.5-flash</code>；DeepSeek 推荐: <code class="text-purple-400">deepseek-chat</code></p>
+          <input type="text" id="llmModel" value="gemini-3.8-flash" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2.5 text-zinc-200 font-mono focus:outline-none focus:border-purple-500">
+          <p class="text-[11px] text-zinc-500 mt-1">Gemini 官方主力: <code class="text-purple-400">gemini-3.8-flash</code>（内置故障智能顺延机制：3.8-flash ➔ 3.8-pro ➔ 3.5-flash ➔ 3.5-flash-lite）；DeepSeek: <code class="text-purple-400">deepseek-chat</code></p>
         </div>
       </div>
 
@@ -7889,7 +7983,17 @@
       }
     }
 
-    // 渲染歌词列表 (纯净易读无杂色)
+    // 将歌词文本拆分为可单独点击取词的词汇流
+    function formatLineWithClickableWords(cleanText, lineIndex) {
+      return cleanText.replace(/([a-zA-Z0-9'’-]+)/g, (match) => {
+        const cleanWord = match.replace(/^['"’]|['"’]$/g, '');
+        if (!/[a-zA-Z]/.test(cleanWord)) return match;
+        const escaped = cleanWord.replace(/'/g, "\\'");
+        return `<span class="lyric-word cursor-pointer" onclick="event.stopPropagation(); triggerWordLookup('${escaped}', ${lineIndex}, this)" title="点击取词: ${match}">${match}</span>`;
+      });
+    }
+
+    // 渲染歌词列表 (支持单词点击智能语境查词)
     function renderLyricsList() {
       const album = ALBUMS[currentAlbumIndex];
       const track = album.tracks[currentTrackIndex];
@@ -7909,11 +8013,12 @@
         row.onclick = () => selectLine(index);
 
         const cleanText = line.rawText || line.text.replace(/<[^>]*>/g, '');
+        const formattedHtml = formatLineWithClickableWords(cleanText, index);
 
         row.innerHTML = `
           <span class="text-zinc-500 font-mono text-xs select-none w-7 text-right mt-0.5">${index + 1}</span>
           <div class="flex-1">
-            <div class="text-zinc-100 font-sans text-sm md:text-[15px] tracking-normal leading-relaxed">${cleanText}</div>
+            <div class="text-zinc-100 font-sans text-sm md:text-[15px] tracking-normal leading-relaxed">${formattedHtml}</div>
           </div>
         `;
         container.appendChild(row);
@@ -8097,7 +8202,7 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
       if (lyricsFound) {
         parseAndApplyLyrics(lyricsFound, matchedSource);
         txt.textContent = '✅ 已成功同步全曲歌词';
-        showToast(`🎉 成功同步《${track.name}》全曲歌词 (${track.lines.length} 行) 并完成音素全维解构！`, 'success');
+        showToast(`🎉 成功同步《${track.name}》全曲歌词 (${track.lines.length} 行) 并完成语义解构就绪！`, 'success');
         setTimeout(() => {
           txt.textContent = '直连官网/开放曲库抓取导入';
         }, 3000);
@@ -8138,12 +8243,31 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
     // ==========================================
     const LLM_STORAGE_KEY = 'eminem_llm_config';
 
+    // Gemini 官方模型优先梯队与智能顺延降级链 (3.8 主力 ➔ 依响应状态往下顺延)
+    const GEMINI_CASCADE_MODELS = [
+      'gemini-3.8-flash',
+      'gemini-3.8-pro',
+      'gemini-3.5-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-3.1-pro-preview',
+      'gemini-3.1-flash-lite',
+      'gemini-1.5-flash'
+    ];
+
     function getLLMConfig() {
       try {
         const raw = localStorage.getItem(LLM_STORAGE_KEY);
-        return raw ? JSON.parse(raw) : { provider: 'gemini', apiKey: '', baseUrl: '', model: 'gemini-2.5-flash' };
+        if (raw) {
+          const cfg = JSON.parse(raw);
+          // 自动清理迁移旧版已下线的 2.5 模型残留，升级为 3.8
+          if (!cfg.model || cfg.model.includes('2.5') || cfg.model.includes('2.0')) {
+            cfg.model = 'gemini-3.8-flash';
+          }
+          return cfg;
+        }
+        return { provider: 'gemini', apiKey: '', baseUrl: '', model: 'gemini-3.8-flash' };
       } catch (e) {
-        return { provider: 'gemini', apiKey: '', baseUrl: '', model: 'gemini-2.5-flash' };
+        return { provider: 'gemini', apiKey: '', baseUrl: '', model: 'gemini-3.8-flash' };
       }
     }
 
@@ -8170,7 +8294,7 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
       document.getElementById('llmProvider').value = cfg.provider || 'gemini';
       document.getElementById('llmApiKey').value = cfg.apiKey || '';
       document.getElementById('llmBaseUrl').value = cfg.baseUrl || '';
-      document.getElementById('llmModel').value = cfg.model || 'gemini-2.5-flash';
+      document.getElementById('llmModel').value = cfg.model || 'gemini-3.8-flash';
       onProviderChange();
       document.getElementById('llmTestMsg').classList.add('hidden');
       document.getElementById('llmModal').classList.remove('hidden');
@@ -8192,7 +8316,7 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
       } else {
         divBaseUrl.classList.add('hidden');
         if (!modelInput.value.includes('gemini')) {
-          modelInput.value = 'gemini-2.5-flash';
+          modelInput.value = 'gemini-3.8-flash';
         }
       }
     }
@@ -8236,8 +8360,9 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
         } else {
           result = await callOpenAICompatible(apiKey, baseUrl, model, testPrompt);
         }
+        const usedModel = result._usedModel || model;
         msgBox.className = 'text-xs font-mono p-2.5 rounded-lg border bg-emerald-950/50 border-emerald-800 text-emerald-300 block';
-        msgBox.textContent = `🎉 连通成功！模型响应: ${JSON.stringify(result)}`;
+        msgBox.textContent = `🎉 连通成功！生效响应模型: [${usedModel}]，模型回复: ${JSON.stringify(result)}`;
       } catch (err) {
         msgBox.className = 'text-xs font-mono p-2.5 rounded-lg border bg-red-950/50 border-red-800 text-red-300 block';
         msgBox.textContent = `❌ 连通失败: ${err.message}`;
@@ -8246,26 +8371,61 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
       }
     }
 
-    async function callGeminiAPI(apiKey, model, prompt) {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model || 'gemini-2.5-flash'}:generateContent?key=${apiKey}`;
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            temperature: 0.2,
-            responseMimeType: 'application/json'
-          }
-        })
-      });
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.error?.message || `HTTP ${res.status} ${res.statusText}`);
+    async function callGeminiAPI(apiKey, requestedModel, prompt) {
+      // 提取首选模型 (默认 3.8)，并去重构建顺延梯队
+      const primary = (requestedModel || 'gemini-3.8-flash').trim();
+      const tryQueue = [primary];
+      for (const m of GEMINI_CASCADE_MODELS) {
+        if (!tryQueue.includes(m)) {
+          tryQueue.push(m);
+        }
       }
-      const data = await res.json();
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-      return JSON.parse(rawText);
+
+      let lastError = null;
+      for (let i = 0; i < tryQueue.length; i++) {
+        const curModel = tryQueue[i];
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${curModel}:generateContent?key=${apiKey}`;
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                temperature: 0.2,
+                responseMimeType: 'application/json'
+              }
+            })
+          });
+
+          if (!res.ok) {
+            const errJson = await res.json().catch(() => ({}));
+            const errMsg = errJson.error?.message || `HTTP ${res.status} ${res.statusText}`;
+            console.warn(`[Gemini Cascade] 模型 ${curModel} 响应异常 (${errMsg})，顺延尝试下一个模型...`);
+            lastError = new Error(`${curModel}: ${errMsg}`);
+            continue; // 顺延下一个候选模型
+          }
+
+          const data = await res.json();
+          const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (!rawText) {
+            lastError = new Error(`${curModel}: 响应为空`);
+            continue;
+          }
+
+          const parsed = JSON.parse(rawText);
+          parsed._usedModel = curModel;
+          if (curModel !== primary) {
+            console.info(`[Gemini Cascade] 首选模型 ${primary} 未响应，已顺延至 ${curModel} 成功获取响应！`);
+          }
+          return parsed;
+        } catch (err) {
+          console.warn(`[Gemini Cascade] 模型 ${curModel} 请求出错:`, err);
+          lastError = err;
+        }
+      }
+
+      throw new Error(`Gemini 模型顺延梯队均未响应。最后错误: ${lastError?.message || '网络或Key异常'}`);
     }
 
     async function callOpenAICompatible(apiKey, baseUrl, model, prompt) {
@@ -8356,8 +8516,9 @@ Return a valid JSON object strictly matching this schema:
     }
 
     function applyLLMAnalysis(data, isFromCache) {
+      const modelTag = data._usedModel ? `✨ LLM [${data._usedModel}]` : (isFromCache ? '⚡ 缓存' : '✨ LLM 专家解读');
       if (data.layer1_literal) {
-        document.getElementById('layer1Text').innerHTML = `<span class="text-purple-300 font-semibold">[${isFromCache ? '⚡ 缓存' : '✨ LLM 专家解读'}]</span> ${data.layer1_literal}`;
+        document.getElementById('layer1Text').innerHTML = `<span class="text-purple-300 font-semibold">[${modelTag}]</span> ${data.layer1_literal}`;
       }
       if (data.layer2_wordplay) {
         document.getElementById('layer2Text').innerHTML = `<span class="text-amber-300 font-semibold">[✨ 双关与隐喻拆解]</span> ${data.layer2_wordplay}`;
@@ -8394,6 +8555,172 @@ Return a valid JSON object strictly matching this schema:
         toast.classList.remove('translate-y-0', 'opacity-100');
       }, 4500);
     }
+
+
+    // ==========================================
+    // 歌词点击取词与 Gemini 语境深度词义解析引擎
+    // ==========================================
+    async function triggerWordLookup(word, lineIndex, element) {
+      selectLine(lineIndex);
+
+      const popover = document.getElementById('wordLookupPopover');
+      const popWord = document.getElementById('popoverWord');
+      const popIpa = document.getElementById('popoverIpa');
+      const popLoading = document.getElementById('popoverLoading');
+      const popContent = document.getElementById('popoverContent');
+      const popPos = document.getElementById('popoverPos');
+      const popContextMeaning = document.getElementById('popoverContextMeaning');
+      const popLore = document.getElementById('popoverLore');
+      const popLiteral = document.getElementById('popoverLiteral');
+      const popSourceTag = document.getElementById('popoverSourceTag');
+
+      popWord.textContent = word;
+      popIpa.textContent = '/.../';
+      popLoading.classList.remove('hidden');
+      popContent.classList.add('hidden');
+      popover.classList.remove('hidden');
+
+      // 定位浮层位置
+      positionPopover(popover, element);
+
+      const album = ALBUMS[currentAlbumIndex];
+      const track = album.tracks[currentTrackIndex];
+      const line = track.lines[lineIndex];
+      const lineText = line.rawText || line.text.replace(/<[^>]*>/g, '');
+
+      // 检查本地缓存
+      const cacheKey = `word_lookup_${track.name}_${word.toLowerCase()}`;
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        try {
+          const data = JSON.parse(cached);
+          renderWordResult(data, true);
+          return;
+        } catch (e) {}
+      }
+
+      const cfg = getLLMConfig();
+      if (!cfg.apiKey) {
+        popLoading.classList.add('hidden');
+        popContent.classList.remove('hidden');
+        popIpa.textContent = '/未配Key/';
+        popPos.textContent = '提示';
+        popContextMeaning.innerHTML = `
+          <span>尚未配置 Gemini API Key。</span>
+          <button onclick="openLLMModal()" class="mt-2 block px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs transition shadow-sm">
+            点击立即配置 API Key 开启语境查词 ➔
+          </button>
+        `;
+        popLore.textContent = '配置后即可调用 Gemini 3.8 获得精准说唱黑话与歌词语境深度释义。';
+        popLiteral.textContent = word;
+        return;
+      }
+
+      const prevLine = lineIndex > 0 ? (track.lines[lineIndex - 1].rawText || track.lines[lineIndex - 1].text.replace(/<[^>]*>/g, '')) : '';
+      const nextLine = lineIndex < track.lines.length - 1 ? (track.lines[lineIndex + 1].rawText || track.lines[lineIndex + 1].text.replace(/<[^>]*>/g, '')) : '';
+
+      const prompt = `You are an elite hip-hop lexicographer and English linguist specializing in Eminem's vocabulary and rap culture.
+Analyze the target word "${word}" in the specific context of this lyric from Eminem's song "${track.name}" (Album: "${album.title}"):
+
+Context before: "${prevLine}"
+Full lyric line: "${lineText}"
+Context after: "${nextLine}"
+Target word: "${word}"
+
+Respond strictly in valid JSON matching this schema:
+{
+  "word": "${word}",
+  "ipa": "国际音标 IPA，例如 /kəˈhuːts/",
+  "part_of_speech": "词性，例如 n. / v. / slang adj.",
+  "context_meaning": "根据本句歌词具体语境深度解析的准确词义与白话解读（中文）",
+  "rap_lore_wordplay": "该词在此处的黑话俚语背景、双关修辞（Double Entendre）或对押韵/梗的支撑作用（中文）",
+  "literal_meaning": "标准通用字典字面释义（中文）"
+}`;
+
+      try {
+        let result;
+        if (cfg.provider === 'gemini') {
+          result = await callGeminiAPI(cfg.apiKey, cfg.model, prompt);
+        } else {
+          result = await callOpenAICompatible(cfg.apiKey, cfg.baseUrl, cfg.model, prompt);
+        }
+        localStorage.setItem(cacheKey, JSON.stringify(result));
+        renderWordResult(result, false);
+      } catch (err) {
+        popLoading.classList.add('hidden');
+        popContent.classList.remove('hidden');
+        popIpa.textContent = '/解析异常/';
+        popContextMeaning.textContent = `查词失败: ${err.message}`;
+        popLore.textContent = '请检查网络或 API Key 连通性。';
+      }
+    }
+
+    function renderWordResult(data, isFromCache) {
+      document.getElementById('popoverLoading').classList.add('hidden');
+      document.getElementById('popoverContent').classList.remove('hidden');
+
+      document.getElementById('popoverWord').textContent = data.word || '';
+      document.getElementById('popoverIpa').textContent = data.ipa || '/IPA/';
+      document.getElementById('popoverPos').textContent = data.part_of_speech || '';
+      document.getElementById('popoverContextMeaning').textContent = data.context_meaning || '';
+      document.getElementById('popoverLore').textContent = data.rap_lore_wordplay || '无特殊黑话背景';
+      document.getElementById('popoverLiteral').textContent = data.literal_meaning || '';
+      document.getElementById('popoverSourceTag').textContent = data._usedModel ? `✨ Gemini (${data._usedModel})` : (isFromCache ? '⚡ 缓存' : '✨ Gemini 3.8 语境解析');
+
+      // 同步右侧常驻面板
+      const sideCard = document.getElementById('sideWordCard');
+      if (sideCard) {
+        sideCard.classList.remove('hidden');
+        document.getElementById('sideWordTitle').textContent = data.word || '';
+        document.getElementById('sideWordIpa').textContent = data.ipa || '';
+        document.getElementById('sideWordPos').textContent = data.part_of_speech ? `(${data.part_of_speech})` : '';
+        document.getElementById('sideWordMeaning').textContent = data.context_meaning || '';
+        document.getElementById('sideWordLore').textContent = data.rap_lore_wordplay || '无特殊黑话背景';
+      }
+    }
+
+    function positionPopover(popover, targetElement) {
+      const rect = targetElement.getBoundingClientRect();
+      const popoverWidth = 320;
+      let top = rect.bottom + 8;
+      let left = rect.left - 16;
+
+      if (left + popoverWidth > window.innerWidth - 16) {
+        left = window.innerWidth - popoverWidth - 16;
+      }
+      if (left < 16) left = 16;
+      if (top + 280 > window.innerHeight) {
+        top = Math.max(16, rect.top - 280);
+      }
+
+      popover.style.top = `${top}px`;
+      popover.style.left = `${left}px`;
+    }
+
+    function closeWordPopover() {
+      const popover = document.getElementById('wordLookupPopover');
+      if (popover) popover.classList.add('hidden');
+    }
+
+    function speakWord(word) {
+      if ('speechSynthesis' in window && word) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(word);
+        u.lang = 'en-US';
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    // 点击页面任意外部区域关闭查词浮层
+    document.addEventListener('click', (e) => {
+      const popover = document.getElementById('wordLookupPopover');
+      if (popover && !popover.classList.contains('hidden')) {
+        if (!popover.contains(e.target) && !e.target.classList.contains('lyric-word')) {
+          popover.classList.add('hidden');
+        }
+      }
+    });
 
     window.onload = init;
   </script>
