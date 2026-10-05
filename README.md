@@ -9,7 +9,7 @@
 
 **专为 Eminem (Slim Shady) 音乐狂热爱好者、嘻哈制作人与修辞学研究者打造的现代全景歌词多维解构平台。**
 
-[在线体验 (GitHub Pages)](#) · [功能特性](#-功能特性) · [音乐学算法原理](#-音乐学算法原理-fam-abc) · [快速上手](#-快速上手) · [LLM 深度引擎配置](#-llm-深度透视配置)
+[在线体验 (GitHub Pages)](https://bradpittwyc.github.io/eminem-lyrics-decoder/) · [功能特性](#-功能特性) · [音乐学算法原理](#-音乐学算法原理-fam-abc) · [快速上手](#-快速上手) · [LLM 深度引擎配置](#-llm-深度透视配置)
 
 </div>
 
