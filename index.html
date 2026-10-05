@@ -26,43 +26,6 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen antialiased flex flex-col font-sans selection:bg-red-600 selection:text-white">
 
-  <!-- 顶部主导航栏 -->
-  <header class="border-b border-zinc-800 bg-zinc-900/95 backdrop-blur sticky top-0 z-40 px-5 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center font-black text-2xl tracking-tighter shadow-lg shadow-red-950 text-black select-none">
-        Ǝ
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-base font-bold tracking-tight text-white">Eminem 全专辑全曲歌词多维解构器</h1>
-          <span class="text-xs px-2 py-0.5 rounded-full bg-red-950/80 text-red-300 font-mono border border-red-800/60">
-            原站 44+ 张官方专辑/单曲全收录 · 540+ 首音轨覆盖
-          </span>
-        </div>
-        <p class="text-xs text-zinc-400">叙事解读 · 多重双关与隐喻透视 · 历史背景与Beef考据 · 官方与开放曲库直连</p>
-      </div>
-    </div>
-
-    <!-- 顶部状态与快速入口 -->
-    <div class="flex items-center gap-3">
-      <a href="https://www.eminem.com/lyrics/" target="_blank" class="hidden md:flex items-center gap-1.5 bg-zinc-950 hover:bg-zinc-800 px-3 py-1.5 rounded-xl border border-zinc-800 text-xs text-zinc-300 transition" title="跳转官方公开歌词中心">
-        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-        <span class="text-zinc-400">官方曲库:</span>
-        <span class="text-red-400 font-mono font-semibold">eminem.com/lyrics ↗</span>
-      </a>
-      <div class="hidden sm:flex items-center gap-1.5 bg-zinc-950 px-3 py-1.5 rounded-xl border border-zinc-800 text-xs">
-        <span class="text-zinc-500">时期:</span>
-        <span id="eraBadge" class="text-red-400 font-semibold font-mono">神作封神纪元 (2000)</span>
-      </div>
-      <button onclick="openLLMModal()" id="llmStatusBtn" class="px-3.5 py-1.5 rounded-xl text-xs bg-purple-950/80 hover:bg-purple-900 border border-purple-800 text-purple-200 transition flex items-center gap-1.5 font-medium shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-purple-400" id="llmStatusDot"></span>
-        <span id="llmStatusText">⚙️ LLM 引擎</span>
-      </button>
-      <button onclick="openCustomModal()" class="px-3.5 py-1.5 rounded-xl text-xs bg-red-600 text-white hover:bg-red-500 transition flex items-center gap-1.5 shadow-md shadow-red-950 font-medium">
-        <span>+ 导入/自定义歌词全解构</span>
-      </button>
-    </div>
-  </header>
 
   <!-- ========================================== -->
   <!-- 视图 1：首页 · 全 12 张专辑正方形封面画廊 (View 1: Home Gallery) -->
@@ -122,10 +85,15 @@
         </button>
       </div>
 
-      <!-- 实时搜索框 -->
-      <div class="relative min-w-[240px]">
-        <input type="text" id="albumSearchInput" oninput="onSearchInput(this.value)" placeholder="🔍 搜索发行标题、年份、歌曲名..." class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-red-500 font-mono transition">
-        <span id="albumSearchCount" class="absolute right-3 top-2 text-[10px] font-mono text-zinc-500 hidden">0 个匹配</span>
+      <!-- 实时搜索框与快捷入口 -->
+      <div class="flex items-center gap-2 min-w-[320px]">
+        <input type="text" id="albumSearchInput" oninput="onSearchInput(this.value)" placeholder="🔍 搜索发行作品、年份、曲目..." class="flex-1 bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-red-500 font-mono transition">
+        <button onclick="openLLMModal()" class="px-3 py-1.5 rounded-xl bg-zinc-950 hover:bg-zinc-800 text-purple-300 border border-purple-900/60 text-xs font-mono transition flex items-center gap-1 flex-shrink-0" title="配置 LLM 语义透视引擎">
+          <span>⚙️ LLM</span>
+        </button>
+        <button onclick="openCustomModal()" class="px-3 py-1.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-semibold transition shadow-sm whitespace-nowrap flex-shrink-0" title="手动导入/粘贴歌词">
+          <span>+ 导入</span>
+        </button>
       </div>
     </div>
 
@@ -8187,6 +8155,7 @@ My girlfriend's pregnant too, I'm 'bout to be a father`
     function updateLLMStatusUI(cfg) {
       const dot = document.getElementById('llmStatusDot');
       const txt = document.getElementById('llmStatusText');
+      if (!dot || !txt) return;
       if (cfg.apiKey && cfg.apiKey.trim().length > 0) {
         dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
         txt.textContent = `● LLM 就绪 (${cfg.model || cfg.provider})`;
