@@ -5,3 +5,5 @@ Thumbs.db
 .env.local
 .vscode/
 .idea/
+android/build/
+.debug/
